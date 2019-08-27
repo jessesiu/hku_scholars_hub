@@ -1,5 +1,7 @@
 # Web scraping from HKU scholar hub
 
+The script will search from [HKU schoars hub website](http://hub.hku.hk/) via the input the journal name and period of time.
+
 ## Requirements
 
 1. Python version should be 3+
