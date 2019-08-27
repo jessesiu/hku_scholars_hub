@@ -19,20 +19,25 @@ all_href_plos = []
 all_href_sc = []
 all_href_excel_plos = []
 all_href_excel_sc = []
+
+journal_name = input("Enter the journal name (e.g. plos one): ")
+journal_name = journal_name.replace(" ","+")
+#print ("you entered " + input_var)
 #input the journal name
-journal_name = "plos+one"
+#journal_name = "plos+one"
 
 #input the year
 
 #search_time = "%5B2016+TO+2018%5D"
-search_time = "2016"
+search_time = input("Enter the search time (e.g. 2016): ")
+#search_time = "2016"
 
 #PLOS ONE
 purl = "http://hub.hku.hk/simple-search?query=&location=publication&filter_field_1=journal&filter_type_1=equals&filter_value_1="+journal_name+"&filter_field_2=dateIssued&filter_type_2=equals&filter_value_2="+search_time+"&sort_by=score&order=desc&rpp=25&etal=0&start=0";
 print(purl)
 
 
-fo = open("/Users/xiaosizhe/Desktop/temp/test.txt", "w")
+fo = open("./test.txt", "w")
 fo.write("HKU Scholarhub URL"+"|"+"Manuscript DOI URL"+"|"+"Data Availability Comment"+"\n")
 
 
@@ -90,59 +95,5 @@ while purl is not None:
 
 fo.close()
 
-# print('--------------------------------\n')
-# loc = ("/Users/xiaosizhe/Desktop/figshare.xls")
-# wb = xlrd.open_workbook(loc)
-# worksheet = wb.sheet_by_index(0)
-# num_rows = worksheet.nrows - 1
-# num_cells = worksheet.ncols - 1
-# curr_row = -1
-# error_count_plos=0
-# error_count_sr=0
-# t_count_plos=0
-# t_count_sr=0
-# while curr_row < num_rows:
-#   curr_row += 1
-#   row = worksheet.row(curr_row)
-#   #print('Row:', curr_row)
-#   journal = worksheet.cell_value(curr_row,0)
-#   hub_url = worksheet.cell_value(curr_row,1)
-#   if 'PLOS' in journal and 'CITYU' not in journal:
-#       t_count_plos+=1
-#       all_href_excel_plos.append(hub_url.strip())
-#       print(hub_url.strip())
-#       if check_url(hub_url.strip()) is False:
-#         print ("PLOS error: "+hub_url.strip()+"\n")
-#         error_count_plos+=1
-#
-#   # while curr_cell < num_cells:
-#   #   curr_cell += 1
-#   #   # Cell Types: 0=Empty, 1=Text, 2=Number, 3=Date, 4=Boolean, 5=Error, 6=Blank
-#   #   cell_type = worksheet.cell_type(curr_row, curr_cell)
-#   #   cell_value = worksheet.cell_value(curr_row, curr_cell)
-#   #   print ' ', cell_type, ':', cell_value
-# # For row 0 and column 0
-#
-# print("For PLOS ONE\n")
-# print("Total number in scholarshub search page: "+ str(count_plos) +"\n")
-# print("Total number in figshare files: "+ str(t_count_plos) +"\n")
-# print("error connection number: " + str(error_count_plos) + "\n")
-# print("url in scholarshub search but not in the figshare files\n")
-# temp1 = [x for x in all_href_plos if x not in all_href_excel_plos]
-# for string in temp1:
-#     print (string)
-#
-# print("url in figshare files but not in scholarshub search\n")
-# temp2 = [x for x in all_href_excel_plos if x not in all_href_plos]
-# for string in temp2:
-#     print (string)
 
-
-
-
-
-#print(html)
-
-# html = urlopen("http://hub.hku.hk/handle/10722/229358").read().decode('utf-8')
-# print(html)
 
