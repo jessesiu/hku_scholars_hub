@@ -9,6 +9,8 @@
 
 ## Run the script
 
+Run the data_availability.py script
+
 Enter the journal name (e.g. plos one): plos one
 
 Enter the search time (e.g. 2016): 2016
